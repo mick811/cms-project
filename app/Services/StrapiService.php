@@ -19,6 +19,8 @@ class StrapiService
 
     /**
      * Get entries for a specific content type.
+     *
+     * @param  array<string, mixed>  $params
      */
     public function collection(string $contentType, array $params = []): Response
     {
@@ -27,6 +29,8 @@ class StrapiService
 
     /**
      * Get a single entry by ID.
+     *
+     * @param  array<string, mixed>  $params
      */
     public function entry(string $contentType, int|string $id, array $params = []): Response
     {
@@ -35,6 +39,8 @@ class StrapiService
 
     /**
      * Handle the HTTP request to Strapi.
+     *
+     * @param  array<string, mixed>  $data
      */
     protected function request(string $method, string $path, array $data = []): Response
     {
