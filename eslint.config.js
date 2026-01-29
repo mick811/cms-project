@@ -3,6 +3,7 @@ import prettier from 'eslint-config-prettier/flat';
 import importPlugin from 'eslint-plugin-import';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
+import tailwindCanonicalClasses from 'eslint-plugin-tailwind-canonical-classes';
 import globals from 'globals';
 import typescript from 'typescript-eslint';
 
@@ -30,23 +31,47 @@ export default [
             },
         },
     },
+    importPlugin.flatConfigs.recommended,
     {
-        ...importPlugin.flatConfigs.recommended,
+        files: ['**/*.{js,jsx,ts,tsx}'],
         settings: {
             'import/resolver': {
                 typescript: true,
                 node: true,
             },
         },
+        plugins: {
+            'tailwind-canonical-classes': tailwindCanonicalClasses,
+        },
         rules: {
             'import/order': [
                 'error',
                 {
-                    groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+                    groups: [
+                        'builtin',
+                        'external',
+                        'internal',
+                        'parent',
+                        'sibling',
+                        'index',
+                    ],
                     alphabetize: {
                         order: 'asc',
                         caseInsensitive: true,
                     },
+                },
+            ],
+            'tailwind-canonical-classes/tailwind-canonical-classes': [
+                'warn',
+                {
+                    cssPath: './resources/css/app.css',
+                    calleeFunctions: [
+                        'cn',
+                        'clsx',
+                        'cva',
+                        'classNames',
+                        'twMerge',
+                    ],
                 },
             ],
         },
@@ -55,6 +80,7 @@ export default [
         ...importPlugin.flatConfigs.typescript,
         files: ['**/*.{ts,tsx}'],
         rules: {
+            ...importPlugin.flatConfigs.typescript.rules,
             '@typescript-eslint/consistent-type-imports': [
                 'error',
                 {
