@@ -98,8 +98,7 @@ export default [
             'bootstrap/ssr',
             'tailwind.config.js',
             'vite.config.ts',
-            'strapi/dist/**',
-            'strapi/types/generated/**',
+            'strapi/**',
         ],
     },
     prettier, // Turn off all rules that might conflict with Prettier
