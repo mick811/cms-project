@@ -1,11 +1,8 @@
----
-title: "Eksamensprojekt: CMS Forløb"
-date: "2026-01-29"
-client:
-  name: "Nordic Bites"
-  concept: "En nordisk madblog med fokus på sæsonens råvarer og enkelthed."
-  target_audience: "Hjemmekokke der søger inspiration til nordisk mad."
----
+| Title            | Eksamensprojekt: CMS Forløb                              |
+|-------------------|---------------------------------------------------------|
+| Kunde            | Nordic Bites                                            |
+| Koncept          | En nordisk madblog med fokus på sæsonens råvarer og enkelthed. |
+| Målgruppe        | Hjemmekokke der søger inspiration til nordisk mad.       |
 
 # Projektbeskrivelse
 
