@@ -23,13 +23,12 @@ dette projekt løser "mulighed 1" i cms-opgaven. sitet er bygget som en headless
 - [x] projektstruktur og dokumentation
 - [x] readme.md med oversigt, features, tech stack
 - [x] .env med strapi url og token
-- [ ] hero indholdstype i strapi (overskrift, undertekst, billede, cta)
+- [ ] hero indholdstype i strapi (billede/video)
 - [ ] product indholdstype i strapi (title, artist, genre, year, price, image, sleeve condition, media condition)
-- [ ] about indholdstype i strapi (title, body, image, signature)
+- [ ] about indholdstype i strapi (title, body, image)
 - [ ] genres i strapi (kun til filtrering - name, slug)
 - [ ] eksempeldata i strapi (10+ produkter, hero, about)
 - [ ] strapiservice med hero, products, about, genres
-- [ ] strapi image url helper
 
 ### fase 2: components
 
@@ -62,7 +61,6 @@ dette projekt løser "mulighed 1" i cms-opgaven. sitet er bygget som en headless
 - [x] loading states (skeleton)
 - [ ] error states og fallback ui
 - [ ] mobile responsive
-- [ ] page transition animationer
 - [ ] empty cart state
 - [ ] search funktion
 
