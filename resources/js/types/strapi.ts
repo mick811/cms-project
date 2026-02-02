@@ -35,3 +35,13 @@ export type StrapiEntry<T> = {
 export type HeroData = StrapiEntry<{
     image: StrapiImage;
 }>;
+
+export type StrapiProduct = StrapiEntry<{
+    title: string;
+    artist: string;
+    price: number;
+    genre: string;
+    media_condition: string;
+    sleeve_condition: string;
+    images: StrapiImage[];
+}>;

@@ -23,8 +23,8 @@ dette projekt løser "mulighed 1" i cms-opgaven. sitet er bygget som en headless
 - [x] projektstruktur og dokumentation
 - [x] readme.md med oversigt, features, tech stack
 - [x] .env med strapi url og token
-- [ ] hero indholdstype i strapi (billede/video)
-- [ ] product indholdstype i strapi (title, artist, genre, year, price, image, sleeve condition, media condition)
+- [x] hero indholdstype i strapi (billede/video)
+- [x] product indholdstype i strapi (title, artist, genre, year, price, image, sleeve condition, media condition)
 - [ ] about indholdstype i strapi (title, body, image)
 - [ ] genres i strapi (kun til filtrering - name, slug)
 - [ ] eksempeldata i strapi (10+ produkter, hero, about)
@@ -45,7 +45,7 @@ dette projekt løser "mulighed 1" i cms-opgaven. sitet er bygget som en headless
 
 ### fase 3: pages
 
-- [ ] home page med hero og featured products
+- [x] home page med hero og featured products
 - [ ] products page med grid og filtre
 - [ ] product detail page (billede, info, add to cart)
 - [ ] cart page

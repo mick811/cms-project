@@ -6,13 +6,15 @@ use Inertia\Inertia;
 use Laravel\Fortify\Features;
 
 Route::get('/', function (StrapiService $strapi) {
-    $hero = $strapi->for('hero')
-        ->with('image')
-        ->first();
+    $data = $strapi->getAll([
+        'hero' => ['with' => 'image', 'first' => true],
+        'products' => ['with' => 'images', 'limit' => 4],
+    ]);
 
     return Inertia::render('welcome', [
         'canRegister' => Features::enabled(Features::registration()),
-        'hero' => $hero,
+        'hero' => $data['hero'],
+        'products' => $data['products'],
     ]);
 })->name('home');
 
