@@ -75,8 +75,9 @@
       "inversedBy": "products"
     },
     "genre": {
-      "type": "string",
-      "required": true
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::genre.genre"
     },
     "release_date": {
       "type": "date",

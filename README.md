@@ -26,7 +26,7 @@ dette projekt løser "mulighed 1" i cms-opgaven. sitet er bygget som en headless
 - [x] hero indholdstype i strapi (billede/video)
 - [x] product indholdstype i strapi (title, artist, genre, year, price, image, sleeve condition, media condition)
 - [ ] about indholdstype i strapi (title, body, image)
-- [ ] genres i strapi (kun til filtrering - name, slug)
+- [x] genres i strapi (kun til filtrering - name, slug)
 - [ ] eksempeldata i strapi (10+ produkter, hero, about)
 - [ ] strapiservice med hero, products, about, genres
 
