@@ -40,6 +40,11 @@ export type StrapiFormat = StrapiEntry<{
     name: string;
 }>;
 
+export type StrapiGenre = StrapiEntry<{
+    type: string;
+    slug: string;
+}>;
+
 export type StrapiProduct = StrapiEntry<{
     slug: string;
     title: string;
@@ -51,4 +56,5 @@ export type StrapiProduct = StrapiEntry<{
     sleeve_condition: string;
     images: StrapiImage[];
     format: StrapiFormat | null;
+    genre: StrapiGenre | null;
 }>;
