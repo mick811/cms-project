@@ -29,7 +29,7 @@ export function ProductGallery({
                                 image={product.images[0]}
                                 alt={
                                     product.images[0]?.alternativeText ||
-                                    product.title
+                                    product.Title
                                 }
                                 className="h-full w-full object-cover"
                                 fallback={

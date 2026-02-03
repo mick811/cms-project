@@ -51,16 +51,33 @@ class StrapiService
     }
 
     /**
-     * Search products by query string.
-     *
      * @return array<int, mixed>
      */
-    public function searchProducts(string $query): array
+    public function getProducts(?string $query = null): array
     {
         $params = [
-            'populate' => 'images',
+            'populate' => ['images', 'format'],
+        ];
+
+        if ($query) {
+            $params['filters[Title][$containsi]'] = $query;
+        }
+
+        $data = $this->request('get', '/api/products', $params)->json('data');
+
+        return $data ?? [];
+    }
+
+    /**
+     * @return array<int, mixed>
+     */
+    public function getProductSuggestions(string $query, int $limit = 6): array
+    {
+        $params = [
+            'pagination[limit]' => $limit,
             'filters[Title][$containsi]' => $query,
         ];
+
         $data = $this->request('get', '/api/products', $params)->json('data');
 
         return $data ?? [];

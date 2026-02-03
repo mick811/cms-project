@@ -36,12 +36,19 @@ export type HeroData = StrapiEntry<{
     image: StrapiImage;
 }>;
 
+export type StrapiFormat = StrapiEntry<{
+    Name: string;
+}>;
+
 export type StrapiProduct = StrapiEntry<{
-    title: string;
-    artist: string;
+    slug: string;
+    Title: string;
+    Artist: string;
+    release_date: string;
     price: number;
-    genre: string;
+    stock: number;
     media_condition: string;
     sleeve_condition: string;
     images: StrapiImage[];
+    format: StrapiFormat | null;
 }>;
