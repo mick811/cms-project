@@ -1,32 +1,36 @@
-name: types
+name: build
 
 on:
   push:
     branches: [develop, main, master, workos]
     paths:
-      - '**.php'
+      - '**.js'
       - '**.ts'
-      - '**.tsx'
       - '**.jsx'
+      - '**.tsx'
       - '**.vue'
+      - '**.css'
+      - '**.scss'
+      - 'vite.config.*'
       - 'tsconfig.json'
-      - 'composer.json'
       - 'package.json'
       - 'bun.lock'
-      - '.github/workflows/types.yml'
+      - '.github/workflows/build.yml'
   pull_request:
     branches: [develop, main, master, workos]
     paths:
-      - '**.php'
+      - '**.js'
       - '**.ts'
-      - '**.tsx'
       - '**.jsx'
+      - '**.tsx'
       - '**.vue'
+      - '**.css'
+      - '**.scss'
+      - 'vite.config.*'
       - 'tsconfig.json'
-      - 'composer.json'
       - 'package.json'
       - 'bun.lock'
-      - '.github/workflows/types.yml'
+      - '.github/workflows/build.yml'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -36,7 +40,7 @@ permissions:
   contents: read
 
 jobs:
-  typecheck:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -78,5 +82,8 @@ jobs:
           php artisan key:generate --no-interaction
           php artisan wayfinder:generate --with-form
 
-      - name: Type Check
-        run: bun run types
+      - name: Build Assets
+        run: bun run build
+
+      # - name: Build SSR Assets
+      #   run: bun run build:ssr
