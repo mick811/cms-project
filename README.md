@@ -7,6 +7,8 @@
 > [!warning]
 > dette er et eksamensprojekt. koden er til undervisningsformål og er ikke optimeret til produktionsbrug.
 
+[![tests](https://github.com/mick811/laravel-strapi-cms/actions/workflows/tests.yml/badge.svg)](https://github.com/mick811/laravel-strapi-cms/actions/workflows/tests.yml)
+
 # projektbeskrivelse
 
 > [!note]
