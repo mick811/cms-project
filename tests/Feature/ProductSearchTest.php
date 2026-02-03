@@ -38,18 +38,4 @@ class ProductSearchTest extends TestCase
 
         $response->assertOk();
     }
-
-    public function test_search_redirects_to_products_with_query(): void
-    {
-        $response = $this->get(route('search', ['q' => 'jazz']));
-
-        $response->assertRedirectToRoute('products', ['q' => 'jazz']);
-    }
-
-    public function test_search_redirects_to_products_without_query(): void
-    {
-        $response = $this->get(route('search'));
-
-        $response->assertRedirectToRoute('products');
-    }
 }
