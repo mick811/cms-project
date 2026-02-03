@@ -28,5 +28,5 @@ jobs:
       - name: Run composer audit
         run: composer audit
 
-      - name: Run npm audit
-        run: bun audit
+      - name: Run bun audit
+        run: bun audit --audit-level=moderate
