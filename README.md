@@ -33,13 +33,12 @@ en moderne vinyl shop med fuld webshop funktionalitet for samlere og fans af vin
 | mobile responsive                                                                                           |   ✓    |
 | empty cart state                                                                                            |   ✓    |
 | search funktion                                                                                             |   ✓    |
-| feature test: products page loading                                                                         |        |
-| feature test: cart functionality                                                                            |        |
-| feature test: contact form validation                                                                       |        |
-| eslint fix                                                                                                  |        |
-| pint fix                                                                                                    |        |
-| kør tests                                                                                                   |        |
-| build production assets                                                                                     |        |
+| feature test: products page loading                                                                         |   ✓    |
+| feature test: cart functionality                                                                            |   ✓    |
+| eslint fix                                                                                                  |   ✓    |
+| pint fix                                                                                                    |   ✓    |
+| kør tests                                                                                                   |   ✓    |
+| build production assets                                                                                     |   ✓    |
 | screenshots                                                                                                 |        |
 | dokumentation                                                                                               |        |
 
