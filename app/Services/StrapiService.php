@@ -66,7 +66,7 @@ class StrapiService
                 // ?? [] ensures we return an empty array instead of null when no data
                 return ($config['first'] ?? false) ? $data : ($data ?? []);
             } catch (ConnectionException $e) {
-                Log::warning('Strapi connection failed', ['key' => $key, 'error' => $e->getMessage()]);
+                Log::warning('strapi connection failed', ['key' => $key, 'error' => $e->getMessage()]);
                 $this->isAvailable = false;
 
                 return ($config['first'] ?? false) ? null : [];
@@ -123,7 +123,7 @@ class StrapiService
 
             return $data ?? [];
         } catch (ConnectionException $e) {
-            Log::warning('Strapi connection failed fetching products', ['error' => $e->getMessage()]);
+            Log::warning('strapi connection failed fetching products', ['error' => $e->getMessage()]);
             $this->isAvailable = false;
 
             return [];
@@ -142,7 +142,7 @@ class StrapiService
 
             return $data ?? [];
         } catch (ConnectionException $e) {
-            Log::warning('Strapi connection failed fetching formats', ['error' => $e->getMessage()]);
+            Log::warning('strapi connection failed fetching formats', ['error' => $e->getMessage()]);
             $this->isAvailable = false;
 
             return [];
@@ -161,7 +161,7 @@ class StrapiService
 
             return $data ?? [];
         } catch (ConnectionException $e) {
-            Log::warning('Strapi connection failed fetching genres', ['error' => $e->getMessage()]);
+            Log::warning('strapi connection failed fetching genres', ['error' => $e->getMessage()]);
             $this->isAvailable = false;
 
             return [];
@@ -186,7 +186,7 @@ class StrapiService
         try {
             $data = $this->request('get', '/api/products', $params)->json('data') ?? [];
         } catch (ConnectionException $e) {
-            Log::warning('Strapi connection failed fetching price range', ['error' => $e->getMessage()]);
+            Log::warning('strapi connection failed fetching price range', ['error' => $e->getMessage()]);
             $this->isAvailable = false;
 
             return ['min' => 0, 'max' => 1000];
@@ -224,7 +224,7 @@ class StrapiService
 
             return $data ?? [];
         } catch (ConnectionException $e) {
-            Log::warning('Strapi connection failed fetching suggestions', ['error' => $e->getMessage()]);
+            Log::warning('strapi connection failed fetching suggestions', ['error' => $e->getMessage()]);
             $this->isAvailable = false;
 
             return [];
@@ -248,7 +248,7 @@ class StrapiService
 
             return (! empty($data)) ? $data[0] : null;
         } catch (ConnectionException $e) {
-            Log::warning('Strapi connection failed fetching product', ['slug' => $slug, 'error' => $e->getMessage()]);
+            Log::warning('strapi connection failed fetching product', ['slug' => $slug, 'error' => $e->getMessage()]);
             $this->isAvailable = false;
 
             return null;

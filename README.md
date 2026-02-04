@@ -29,7 +29,7 @@ en moderne vinyl shop med fuld webshop funktionalitet for samlere og fans af vin
 | product detail page (billede, info, add to cart)                                                            |   ✓    |
 | cart page                                                                                                   |   ✓    |
 | loading states (skeleton)                                                                                   |   ✓    |
-| error states og fallback ui                                                                                 |        |
+| error states og fallback ui                                                                                 |   ✓    |
 | mobile responsive                                                                                           |   ✓    |
 | empty cart state                                                                                            |   ✓    |
 | search funktion                                                                                             |   ✓    |
