@@ -48,6 +48,7 @@ export type StrapiGenre = StrapiEntry<{
 export type StrapiProduct = StrapiEntry<{
     slug: string;
     title: string;
+    description: string;
     artist: string;
     release_date: string;
     price: number;
@@ -57,4 +58,10 @@ export type StrapiProduct = StrapiEntry<{
     images: StrapiImage[];
     format: StrapiFormat | null;
     genre: StrapiGenre | null;
+}>;
+
+export type StrapiAbout = StrapiEntry<{
+    title: string;
+    description: string;
+    portrait: StrapiImage;
 }>;

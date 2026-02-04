@@ -56,8 +56,16 @@ class ProductController extends Controller
     /**
      * Display a single product detail page.
      */
-    public function show(int $product): Response
+    public function show(string $slug, StrapiService $strapi): Response
     {
-        return Inertia::render('products/show', ['id' => $product]);
+        $product = $strapi->getProduct($slug);
+
+        if (! $product) {
+            abort(404);
+        }
+
+        return Inertia::render('products/show', [
+            'product' => $product,
+        ]);
     }
 }

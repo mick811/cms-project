@@ -178,6 +178,23 @@ class StrapiService
     }
 
     /**
+     * Get a single product by its slug.
+     *
+     * @return array<string, mixed>|null
+     */
+    public function getProduct(string $slug): ?array
+    {
+        $params = [
+            'populate' => ['images', 'format', 'genre'],
+            'filters[slug][$eq]' => $slug,
+        ];
+
+        $data = $this->request('get', '/api/products', $params)->json('data');
+
+        return (! empty($data)) ? $data[0] : null;
+    }
+
+    /**
      * Make an HTTP request to Strapi.
      *
      * Handles authentication if a token is configured.
