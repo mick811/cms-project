@@ -11,10 +11,9 @@ en moderne vinyl shop med fuld webshop funktionalitet for samlere og fans af vin
 | .env med strapi url og token                                                                                |   ✓    |
 | hero indholdstype i strapi (billede/video)                                                                  |   ✓    |
 | product indholdstype i strapi (title, artist, genre, year, price, image, sleeve condition, media condition) |   ✓    |
-| about indholdstype i strapi (title, body, image)                                                            |        |
 | genres i strapi (kun til filtrering - name, slug)                                                           |   ✓    |
 | eksempeldata i strapi (10+ produkter, hero, about)                                                          |        |
-| strapiservice med hero, products, about, genres                                                             |        |
+| strapiservice med hero, products, about, genres                                                             |   ✓    |
 | layout component                                                                                            |   ✓    |
 | header component med logo, nav, search, cart icon                                                           |   ✓    |
 | footer component                                                                                            |        |
