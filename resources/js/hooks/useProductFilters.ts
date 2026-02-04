@@ -20,21 +20,65 @@ interface UseProductFiltersOptions {
     priceRange: PriceRange;
 }
 
+function toSelectValue(value: number | null | undefined): string {
+    return value == null ? 'all' : value.toString();
+}
+
+function toIdOrNull(value: string): number | null {
+    return value === 'all' ? null : parseInt(value);
+}
+
+function getInitialPrice(
+    filters: Filters,
+    priceRange: PriceRange,
+): [number, number] {
+    return [
+        filters.minPrice ?? priceRange.min,
+        filters.maxPrice ?? priceRange.max,
+    ];
+}
+
+type ResolvedFilters = {
+    query?: string;
+    format?: number | null;
+    genre?: number | null;
+    minPrice?: number | null;
+    maxPrice?: number | null;
+};
+
+function buildParams(
+    { query, format, genre, minPrice, maxPrice }: ResolvedFilters,
+    priceRange: PriceRange,
+): Record<string, string | number> {
+    const params: Record<string, string | number> = {};
+
+    if (query) params.q = query;
+    if (format) params.format = format;
+    if (genre) params.genre = genre;
+    if (minPrice && minPrice !== priceRange.min) {
+        params.minPrice = minPrice;
+    }
+    if (maxPrice && maxPrice !== priceRange.max) {
+        params.maxPrice = maxPrice;
+    }
+
+    return params;
+}
+
 export function useProductFilters({
     initialFilters,
     priceRange,
 }: UseProductFiltersOptions) {
-    const [search, setSearch] = useState(initialFilters.query || '');
-    const [format, setFormat] = useState(
-        initialFilters.format?.toString() || 'all',
+    const [search, setSearch] = useState(() => initialFilters.query ?? '');
+    const [format, setFormat] = useState(() =>
+        toSelectValue(initialFilters.format),
     );
-    const [genre, setGenre] = useState(
-        initialFilters.genre?.toString() || 'all',
+    const [genre, setGenre] = useState(() =>
+        toSelectValue(initialFilters.genre),
     );
-    const [price, setPrice] = useState<[number, number]>([
-        initialFilters.minPrice ?? priceRange.min,
-        initialFilters.maxPrice ?? priceRange.max,
-    ]);
+    const [price, setPrice] = useState<[number, number]>(() =>
+        getInitialPrice(initialFilters, priceRange),
+    );
 
     const debouncedSearch = useDebounce(search, 300);
     const debouncedPrice = useDebounce(price, 300);
@@ -42,36 +86,18 @@ export function useProductFilters({
     // builds url params and navigates
     const navigate = useCallback(
         (overrides: Partial<Filters> = {}) => {
-            const params: Record<string, string | number> = {};
+            const [min, max] = debouncedPrice;
 
-            // use 'in' check because null is a valid value (means "all")
-            const q = 'query' in overrides ? overrides.query : debouncedSearch;
-            const f =
-                'format' in overrides
-                    ? overrides.format
-                    : format !== 'all'
-                      ? parseInt(format)
-                      : null;
-            const g =
-                'genre' in overrides
-                    ? overrides.genre
-                    : genre !== 'all'
-                      ? parseInt(genre)
-                      : null;
-            const min =
-                'minPrice' in overrides
-                    ? overrides.minPrice
-                    : debouncedPrice[0];
-            const max =
-                'maxPrice' in overrides
-                    ? overrides.maxPrice
-                    : debouncedPrice[1];
+            const resolved: ResolvedFilters = {
+                query: debouncedSearch,
+                format: toIdOrNull(format),
+                genre: toIdOrNull(genre),
+                minPrice: min,
+                maxPrice: max,
+                ...overrides,
+            };
 
-            if (q) params.q = q;
-            if (f) params.format = f;
-            if (g) params.genre = g;
-            if (min && min !== priceRange.min) params.minPrice = min;
-            if (max && max !== priceRange.max) params.maxPrice = max;
+            const params = buildParams(resolved, priceRange);
 
             router.get('/products', params, {
                 preserveScroll: true,
@@ -80,6 +106,22 @@ export function useProductFilters({
             });
         },
         [debouncedSearch, format, genre, debouncedPrice, priceRange],
+    );
+
+    const setFormatAndNavigate = useCallback(
+        (value: string) => {
+            setFormat(value);
+            navigate({ format: value === 'all' ? null : parseInt(value) });
+        },
+        [navigate],
+    );
+
+    const setGenreAndNavigate = useCallback(
+        (value: string) => {
+            setGenre(value);
+            navigate({ genre: value === 'all' ? null : parseInt(value) });
+        },
+        [navigate],
     );
 
     useEffect(() => {
@@ -114,15 +156,9 @@ export function useProductFilters({
         search,
         setSearch,
         format,
-        setFormat: (value: string) => {
-            setFormat(value);
-            navigate({ format: value === 'all' ? null : parseInt(value) });
-        },
+        setFormat: setFormatAndNavigate,
         genre,
-        setGenre: (value: string) => {
-            setGenre(value);
-            navigate({ genre: value === 'all' ? null : parseInt(value) });
-        },
+        setGenre: setGenreAndNavigate,
         price,
         setPrice,
     };
