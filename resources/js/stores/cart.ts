@@ -1,3 +1,10 @@
+/**
+ * Cart Store using Zustand with persistence
+ *
+ * Zustand is a lightweight state management library.
+ * The 'persist' middleware automatically saves cart data to localStorage,
+ * so the cart persists across page reloads.
+ */
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { StrapiProduct } from '@/types';
@@ -21,6 +28,7 @@ interface CartStore {
 
 export const useCartStore = create<CartStore>()(
     persist(
+        // set = update state, get = read current state
         (set, get) => ({
             items: [],
 

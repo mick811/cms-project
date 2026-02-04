@@ -2,6 +2,24 @@
 
 en moderne vinyl shop med fuld webshop funktionalitet for samlere og fans af vinyl og cd'er.
 
+## tech stack
+
+- **laravel 12** - php backend framework
+- **react 19** - frontend bibliotek med typescript
+- **inertia.js** - forbinder laravel og react uden at bygge separat api. giver spa oplevelse med server-side routing
+- **strapi** - headless cms til produkt data
+- **zustand** - state management til indkøbskurv
+- **tailwind css** - utility-first css framework
+
+## hvad er inertia.js?
+
+inertia er en "glue" mellem backend og frontend. når du klikker et link, sender inertia en ajax request til laravel. laravel returnerer json med react komponent + props. inertia opdaterer dom'en uden page reload. det giver:
+
+- spa oplevelse (hurtig navigation)
+- server-side routing (sikrere)
+- ingen separat api at vedligeholde
+- bedre seo end traditionelle spa's
+
 ## spec liste
 
 | opgave                                                                                                      | status |

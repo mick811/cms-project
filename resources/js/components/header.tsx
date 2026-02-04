@@ -1,3 +1,10 @@
+/**
+ * Header Component
+ *
+ * Displays the site navigation, search functionality, and cart icon.
+ * The cart icon shows the number of items and opens the CartDrawer when clicked.
+ * Uses Inertia's Link component for client-side navigation without page reloads.
+ */
 import { Link, router, usePage } from '@inertiajs/react';
 import { Search, ShoppingCart, User } from 'lucide-react';
 import { useState } from 'react';
