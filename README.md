@@ -16,7 +16,7 @@ en moderne vinyl shop med fuld webshop funktionalitet for samlere og fans af vin
 | strapiservice med hero, products, about, genres                                                             |   ✓    |
 | layout component                                                                                            |   ✓    |
 | header component med logo, nav, search, cart icon                                                           |   ✓    |
-| footer component                                                                                            |        |
+| footer component                                                                                            |   ✓    |
 | button component                                                                                            |   ✓    |
 | card component til produkter                                                                                |   ✓    |
 | input, textarea, label components                                                                           |   ✓    |

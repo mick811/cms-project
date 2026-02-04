@@ -1,5 +1,6 @@
 import { usePage } from '@inertiajs/react';
 import type { ReactNode } from 'react';
+import { Footer } from '@/components/footer';
 import { SidebarProvider } from '@/components/ui/sidebar';
 import type { SharedData } from '@/types';
 
@@ -13,7 +14,10 @@ export function AppShell({ children, variant = 'header' }: Props) {
 
     if (variant === 'header') {
         return (
-            <div className="flex min-h-screen w-full flex-col">{children}</div>
+            <div className="flex min-h-screen w-full flex-col">
+                {children}
+                <Footer />
+            </div>
         );
     }
 

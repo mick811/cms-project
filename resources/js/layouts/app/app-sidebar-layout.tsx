@@ -2,6 +2,7 @@ import { AppContent } from '@/components/app-content';
 import { AppShell } from '@/components/app-shell';
 import { AppSidebar } from '@/components/app-sidebar';
 import { AppSidebarHeader } from '@/components/app-sidebar-header';
+import { Footer } from '@/components/footer';
 import type { AppLayoutProps } from '@/types';
 
 export default function AppSidebarLayout({
@@ -11,9 +12,13 @@ export default function AppSidebarLayout({
     return (
         <AppShell variant="sidebar">
             <AppSidebar />
-            <AppContent variant="sidebar" className="overflow-x-hidden">
+            <AppContent
+                variant="sidebar"
+                className="flex flex-col overflow-x-hidden"
+            >
                 <AppSidebarHeader breadcrumbs={breadcrumbs} />
-                {children}
+                <div className="flex-1">{children}</div>
+                <Footer />
             </AppContent>
         </AppShell>
     );
