@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { useSuggestions } from '@/hooks/useSearch';
 import type { SharedData } from '@/types';
+import AppLogoIcon from './app-logo-icon';
 
 type Suggestion = { id: number; title: string };
 
@@ -23,23 +24,14 @@ export default function Header() {
         <header className="fixed top-0 right-0 left-0 z-50 bg-sidebar text-sidebar-foreground">
             <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
                 <nav className="hidden items-center gap-6 md:flex">
+                    <Link href="/" prefetch>
+                        <AppLogoIcon className="size-5 fill-current text-black dark:text-white" />
+                    </Link>
                     <Link
                         href="/products"
                         className="font-medium tracking-wide uppercase transition-colors hover:text-sidebar-accent-foreground"
                     >
                         Shop
-                    </Link>
-                    <Link
-                        href="/about"
-                        className="font-medium tracking-wide uppercase transition-colors hover:text-sidebar-accent-foreground"
-                    >
-                        About Us
-                    </Link>
-                    <Link
-                        href="/contact"
-                        className="font-medium tracking-wide uppercase transition-colors hover:text-sidebar-accent-foreground"
-                    >
-                        Contact Us
                     </Link>
                 </nav>
 

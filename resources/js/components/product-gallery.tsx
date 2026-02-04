@@ -1,3 +1,4 @@
+import { Link } from '@inertiajs/react';
 import { StrapiImage } from '@/components/strapi-image';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -40,8 +41,8 @@ export function ProductGallery({
                         role="listitem"
                         className="group flex flex-col overflow-hidden rounded-xs border border-border bg-card"
                     >
-                        <a
-                            href={`/products/${product.id}`}
+                        <Link
+                            href={`/products/${product.slug}`}
                             className="aspect-square w-full overflow-hidden"
                         >
                             <StrapiImage
@@ -55,14 +56,14 @@ export function ProductGallery({
                                     <div className="h-full w-full bg-slate-300" />
                                 }
                             />
-                        </a>
+                        </Link>
                         <div className="flex flex-1 flex-col gap-2 p-3 sm:p-4">
-                            <a
-                                href={`/products/${product.id}`}
+                            <Link
+                                href={`/products/${product.slug}`}
                                 className="line-clamp-2 text-sm font-medium hover:underline sm:text-base"
                             >
                                 {product.title}
-                            </a>
+                            </Link>
                             <p className="text-xs text-muted-foreground sm:text-sm">
                                 {product.artist}
                             </p>
@@ -102,7 +103,7 @@ export function ProductGallery({
                     role="listitem"
                     className="aspect-square w-full overflow-hidden rounded-xs"
                 >
-                    <a href={`/products/${product.id}`}>
+                    <Link href={`/products/${product.slug}`}>
                         <figure className="h-full w-full">
                             <StrapiImage
                                 image={product.images[0]}
@@ -116,7 +117,7 @@ export function ProductGallery({
                                 }
                             />
                         </figure>
-                    </a>
+                    </Link>
                 </li>
             ))}
         </ul>
