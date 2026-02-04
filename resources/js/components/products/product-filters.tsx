@@ -144,6 +144,8 @@ function PriceFilter({
                     }
                     min={priceRange.min}
                     max={value[1]}
+                    placeholder="Min"
+                    aria-label="Minimum price"
                     className="h-9 w-24 rounded-xs text-center"
                 />
                 <Input
@@ -154,6 +156,8 @@ function PriceFilter({
                     }
                     min={value[0]}
                     max={priceRange.max}
+                    placeholder="Max"
+                    aria-label="Maximum price"
                     className="h-9 w-24 rounded-xs text-center"
                 />
             </div>
