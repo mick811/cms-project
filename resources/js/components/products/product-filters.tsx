@@ -39,9 +39,11 @@ export function ProductFilters({
     onPriceChange,
 }: ProductFiltersProps) {
     return (
-        <aside className="hidden w-72 shrink-0 lg:block">
-            <div className="sticky top-6 flex flex-col gap-6">
-                <h2 className="text-lg font-semibold">Filters</h2>
+        <aside className="w-full lg:w-72 lg:shrink-0">
+            <div className="flex flex-col gap-6 lg:sticky lg:top-6">
+                <h2 className="hidden text-lg font-semibold lg:block">
+                    Filters
+                </h2>
 
                 <FormatFilter
                     formats={formats}

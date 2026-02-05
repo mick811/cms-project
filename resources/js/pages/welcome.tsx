@@ -14,11 +14,13 @@ export default function Welcome() {
 
     return (
         <div>
-            <StrapiImage
-                image={hero.image}
-                alt="billede af en hero"
-                className="h-auto w-full object-cover"
-            />
+            <div className="relative h-[50vh] min-h-75 w-full overflow-hidden sm:h-[60vh] md:h-[70vh] lg:h-[80vh]">
+                <StrapiImage
+                    image={hero.image}
+                    alt="billede af en hero"
+                    className="h-full w-full object-cover"
+                />
+            </div>
 
             <section
                 id="popular"
