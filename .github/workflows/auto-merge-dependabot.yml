@@ -22,9 +22,18 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Enable auto-merge
+      - name: Wait for checks
         if: steps.metadata.outputs.update-type != 'version-update:semver-major'
-        run: gh pr merge --auto --squash "$PR_URL"
+        uses: lewagon/wait-on-check-action@v1
+        with:
+          ref: ${{ github.ref }}
+          check-name: 'lint, build, security, types, tests'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+
+      - name: Merge PR
+        if: steps.metadata.outputs.update-type != 'version-update:semver-major'
+        run: gh pr merge --squash "$PR_URL" --delete-branch
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
